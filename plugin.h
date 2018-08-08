@@ -12,7 +12,7 @@
 
 #define PAYLOAD(func) extern void func(void);
 
-int PLUGIN_SIGNATURE = 0x1337;
+#define PLUGIN_SIGNATURE_V1 0x13370100
 
 enum {
   GPR_,
@@ -29,6 +29,7 @@ enum Check {
 };
 
 typedef struct {
+  int Signature;               /* Plugin Signature */
   char* Name;                  /* Plugin name */
   char* Description;           /* Plugin synopsis */
   void (*Payload)(void);       /* Plugin payload/workload */
