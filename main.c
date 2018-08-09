@@ -3,6 +3,7 @@
 #include <dlfcn.h>
 
 #include "plugin.h"
+#include "uassembler.h"
 
 void checkpointer(void* pointer, int n) {
   if (pointer == NULL) {
@@ -25,5 +26,13 @@ int main() {
   printPluginAttributes(p);
 
   f = p->Payload;
+  f();
+
+  f = allocateCodeCache(3);
+
+  tbegin_();
+  tend_();
+  blr();
+
   f();
 }

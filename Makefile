@@ -5,15 +5,16 @@ CFLAGS=-O0 -g -ldl
 
 all: main tabort.so
 
-objects: plugin.o main.o tabort.so
+objects: plugin.o main.o tabort.so uassembler.o
 
+uassembler.o: uassembler.h uassembler.c
 
 plugin.o: plugin.h plugin.c
 
 main.o: plugin.h main.c
 	$(CC) -c -o main.o main.c $(CFLAGS)
 
-main: main.o plugin.o
+main: main.o plugin.o uassembler.o
 	$(CC) -o main $^ $(CFLAGS)
 
 tabort.o: plugin.h tabort.c
