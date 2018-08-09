@@ -1,4 +1,5 @@
 CC=gcc
+LD=ld
 CFLAGS=-O0 -g -ldl
 
 
@@ -20,7 +21,7 @@ tabort.o: plugin.h tabort.c
 tabort_payload.o: plugin.h tabort_payload.S
 	$(CC) -o $@ -c tabort_payload.S $(CFLAGS)
 tabort.so: tabort.o tabort_payload.o
-	$(CC) -o $@ -shared $^ $(CFLAGS)
+	$(LD) -o $@ -shared $^ $(FLAGS)
 	
 clean:
 	rm -fr *.o *.so main
