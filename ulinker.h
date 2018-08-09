@@ -1,0 +1,7 @@
+- register signal handlers as per thread
+- add initial register setter
+- add tbegin.
+- add failure handler (must resolve address)
+- add plugin payload
+- add tend.
+- add checkers
