@@ -6,7 +6,8 @@
 
 #ifdef __ASSEMBLY__
 
-#define PAYLOAD(func) .globl func; func
+#define PAYLOAD_BEGIN(func) .globl func; func:
+#define PAYLOAD_END(func) blr
 
 #else
 
