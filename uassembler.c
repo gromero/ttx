@@ -10,7 +10,8 @@ void* allocateCodeCache(int n) {
   instr_size_ = n;
   byte_size_ = n * INSTRUCTION_SIZE;
 
-  start_addr_ = mmap(NULL, byte_size_, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_ANONYMOUS, -1, 0);
+  start_addr_ = mmap(NULL, byte_size_, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
+  current_addr_ = start_addr_;
   return start_addr_;
 }
 
