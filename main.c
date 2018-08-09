@@ -30,9 +30,11 @@ int main() {
 
   f = allocateCodeCache(3);
 
-  tbegin_();
-  tend_();
-  blr();
+  if (f != NULL) {
+    tbegin_();
+    tend_();
+    blr();
 
-  f();
+    f();
+  }
 }

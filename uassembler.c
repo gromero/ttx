@@ -24,6 +24,6 @@ void emit32(unsigned int instr) {
   current_addr_ += INSTRUCTION_SIZE;
 }
 
-void tbegin_(void) { emit32(0x1); };
-void tend_(void) { emit32(0x2); };
-void blr(void) { emit32(0x4e800020); };
+void tbegin_(void) { emit32(0x7C00051D); };
+void tend_(void)   { emit32(0x7C00055D); };
+void blr(void)     { emit32(0x4E800020); };
